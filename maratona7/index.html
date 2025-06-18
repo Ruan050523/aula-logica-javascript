@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calcular Média (com erro)</title>
+</head>
+<body>
+  <h1>Média das Notas</h1>
+  <p id="resultado"></p>
+ 
+  <script>
+    function calcularMedia(notas) {
+      let soma = 0;
+      for (let i = 0; i < notas.length; i++) {
+        soma += notas[i];
+      }
+      return soma / notas.length;
+    }
+ //O índice i está sendo incrementado até i <= notas.length, o que faz com que ele acesse notas[3],
+ //que não existe (os índices válidos são 0, 1 e 2).
+ // Isso resulta em undefined sendo somado com os outros números, e a soma acaba se tornando NaN.
+    let notas = [7, 8, 9];
+    let media = calcularMedia(notas);
+    document.getElementById("resultado").textContent = "A média é: " + media;
+  </script>
+</body>
+</html>
